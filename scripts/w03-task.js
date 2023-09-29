@@ -39,20 +39,39 @@ function multiplyNumbers () {
 document.querySelector('#multiplyNumbers').addEventListener('click',multiplyNumbers);
 
 /* Open Function Use - Divide Numbers */
+const result1 = (dividend,divisor) => dividend / divisor;
 
+function divideNumbers () {
+    let dividend = Number(document.querySelector('#dividend').value);
+    let divisor = Number(document.querySelector('#divisor').value);
+    document.querySelector('#quotient').value = result1(dividend,divisor);
+}
+
+document.querySelector('#divideNumbers').addEventListener('click',divideNumbers);
 
 /* Decision Structure */
+let currentYear = new Date().getFullYear();
+document.querySelector('#year').value = currentYear;
 
 
 /* ARRAY METHODS - Functional Programming */
+let numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13];
+
 /* Output Source Array */
+document.getElementById('array').innerHTML = numbers; 
 
 /* Output Odds Only Array */
+document.getElementById('odds').innerHTML = numbers.filter((number) => number%2 !== 0);
 
 /* Output Evens Only Array */
+document.getElementById('evens').innerHTML = numbers.filter((number) => number%2 === 0);
 
 /* Output Sum of Org. Array */
+document.getElementById('sumOfArray').innerHTML = numbers.reduce((sum,number) => sum + number);
 
 /* Output Multiplied by 2 Array */
+document.getElementById('multiplied').innerHTML = numbers.map(number => number*2);
 
 /* Output Sum of Multiplied by 2 Array */
+let i = numbers.map(number => number*2);
+document.getElementById('sumOfMultiplied').innerHTML = i.reduce((sum,number) => sum + number);
