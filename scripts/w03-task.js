@@ -15,14 +15,14 @@ function addNumbers () {
 document.querySelector('#addNumbers').addEventListener('click',addNumbers);
 
 /* Function Expression - Subtract Numbers */
-function subtract (subtract1,subtract2) {
+const difference = function (subtract1,subtract2) {
     return subtract1 - subtract2;
 }
 
 function subtractNumbers () {
-    let subNumber1 = Number(document.querySelector('#subtract1').value);
-    let subNumber2 = Number(document.querySelector('#subtract2').value);
-    document.querySelector('#difference').value = subtract(subNumber1, subNumber2);
+    let subtract1 = Number(document.querySelector('#subtract1').value);
+    let subtract2 = Number(document.querySelector('#subtract2').value);
+    document.querySelector('#difference').value = difference(subtract1,subtract2);
 }
 
 document.querySelector('#subtractNumbers').addEventListener('click',subtractNumbers);
