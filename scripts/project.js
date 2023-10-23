@@ -2,22 +2,7 @@
 
 const weatherElement = document.querySelector("#weather");
 
-const locationSanDiego = {
-  name: "San Diego, CA - USA",
-  key: 347628,
-};
-const locationLondon = {
-  name: "London, England - UK",
-  key: 328328,
-};
-const locationSacramento = {
-  name: "Sacramento, CA - USA",
-  key: 347627,
-};
-const locationSaltLake = {
-  name: "Salt Lake City, UT - USA",
-  key: 331216,
-};
+import locations from './modules/project_module.js';
 
 function selectLocation() {
   reset();
@@ -25,19 +10,19 @@ function selectLocation() {
   switch (selection) {
     case "sanDiego":
       // location = locationSanDiego;
-      getWeather(locationSanDiego);
+      getWeather(locations[0]);
       break;
     case "london":
       // location = locationLondon;      
-      getWeather(locationLondon);
+      getWeather(locations[3]);
       break;
     case "sacramento":
       // location = locationSacramento;      
-      getWeather(locationSacramento);
+      getWeather(locations[1]);
       break;
     case "saltLake":
       // location = locationSaltLake;
-      getWeather(locationSaltLake);
+      getWeather(locations[2]);
       break;
   }
 }
@@ -66,7 +51,7 @@ const getWeather = async (location) => {
   const response = await fetch(
     `https://dataservice.accuweather.com/currentconditions/v1/${location.key}?apikey=fcHEQHxUxACs3b6E0LCcBGn0ru7Eh0xG`
   );
-  weatherData = await response.json();
+  let weatherData = await response.json();
   if (response.ok) {
     displayWeather(weatherData,location);
   } else {
@@ -78,4 +63,4 @@ document.querySelector("#selectedPlace").addEventListener("change", () => {
   selectLocation();
 });
 
-getWeather(locationSaltLake);
+getWeather(locations[2]);
